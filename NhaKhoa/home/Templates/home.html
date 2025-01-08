@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Chủ Nha Khoa</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+
+    {% block title %}Trang Chủ{% endblock %}
+    
+    {% block content %}
+    <div class="text-center">
+        <h1>Chào mừng đến với phòng khám nha khoa</h1>
+        <p>Chúng tôi cung cấp các dịch vụ chăm sóc răng miệng tốt nhất để bạn luôn tự tin với nụ cười của mình.</p>
+        <a href="/book/" class="btn btn-primary">Đặt Lịch Ngay</a>
+    </div>
+    {% endblock %}
+</body>
+</html>
