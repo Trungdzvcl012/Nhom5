@@ -41,7 +41,16 @@
 .container {
     padding-top: 70px;
 }
+.partner-logo {
+    max-width: 40px; /* Kích thước tối đa cho logo */
+    height: auto; /* Giữ tỷ lệ cho hình ảnh */
+    margin: 0 15px; /* Khoảng cách giữa các logo */
+}
 
+.partners {
+    background-color: #f8f9fa; /* Màu nền cho phần đối tác */
+    padding: 20px 0; /* Padding cho phần */
+}
 /* Tùy chỉnh các card */
 .card {
     border: none;
@@ -64,8 +73,8 @@
 
 /* Footer */
 .footer {
-    background-color: #007bff; /* Thay đổi màu nền */
-    color: white; /* Màu chữ trắng */
+    background-color: white; /* Thay đổi màu nền */
+    color: black ; /* Màu chữ trắng */
     padding: 40px 20px; /* Tăng padding cho không gian thoáng đãng hơn */
     text-align: center; /* Căn giữa nội dung */
 }
@@ -76,7 +85,7 @@
 }
 
 .footer .social-icons a {
-    color: white; /* Màu icon mạng xã hội */
+    color: black; /* Màu icon mạng xã hội */
     font-size: 18px; /* Kích thước icon */
     margin: 0 10px; /* Khoảng cách giữa các icon */
     transition: color 0.3s; /* Hiệu ứng chuyển màu khi hover */
@@ -98,7 +107,7 @@
 
 .footer .quick-links ul li a {
     text-decoration: none; /* Bỏ gạch chân */
-    color: white; /* Màu chữ liên kết */
+    color: black; /* Màu chữ liên kết */
     transition: color 0.3s; /* Hiệu ứng chuyển màu khi hover */
 }
 
