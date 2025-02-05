@@ -46,10 +46,10 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="#">Đặt khám tại cơ sở </a></li>
-                            <li><a class="dropdown-item" href="#">Đặt khám theo bác sĩ </a></li>
+                            <li><a class="dropdown-item" href="{% url 'datbacsi' %}">Đặt khám theo bác sĩ </a></li>
                             <li><a class="dropdown-item" href="#">Gọi video với bác sĩ </a></li>
-                            <li><a class="dropdown-item" href="#">Đặt lịch xét nghiệm </a></li>
-                            <li><a class="dropdown-item" href="#">Đặt lịch tiêm chủng </a></li>
+                            <li><a class="dropdown-item" href="{% url 'datxetnghiem' %}">Đặt lịch xét nghiệm </a></li>
+                            <li><a class="dropdown-item" href="{% url 'dattiemchung' %}">Đặt lịch tiêm chủng </a></li>
                             <li><a class="dropdown-item" href="#">Thanh toán viện phí </a></li>
                         </ul>
                     </li>
@@ -186,19 +186,19 @@
                 <h3><span>Sức khỏe</span></h3>
                 <p>Gói khám sức khỏe tổng quát năm</p>
                 <span class="price">500.000đ</span>
-                <a href="#" class="btn">Đặt khám ngay</a>
+                <a href="#" class=" btn-book">Đặt khám ngay</a> 
             </div>
             <div class="col-md-4 service-card">
                 <h3><span>Xét nghiệm</span></h3>
                 <p>Gói xét nghiệm máu cơ bản</p>
                 <span class="price">300.000đ</span>
-                <a href="#" class="btn">Đặt khám ngay</a>
+                <a href="#" class=" btn-book">Đặt khám ngay</a> 
             </div>
             <div class="col-md-4 service-card">
                 <h3><span>Tiêm chủng</span></h3>
                 <p>Tiêm phòng cúm hàng năm</p>
                 <span class="price">250.000đ</span>
-                <a href="#" class="btn">Đặt khám ngay</a>
+                <a href="#" class=" btn-book">Đặt khám ngay</a>
             </div>
         </div>
     </div>
@@ -210,25 +210,28 @@
         <div class="row">
             <div class="col-md-4 review-card">
                 <p class="review-text">"Đặt lịch xét nghiệm bên này rất gọn, có cả dịch vụ làm ở nhà nữa. Không cần phải đến bệnh viện." </p>
-                <span class="review-author">Nhân Nguyễn</span>
+                <span class="review-author">Trần Khải </span>
         </div>
         <div class="col-md-4 review-card">
             <p class="review-text">"Dịch vụ từ tư vấn đến video hướng dẫn, mình rất hài lòng. Nhân viên tư vấn rất nhiệt tình và chu đáo." </p>
-            <span class="review-author">Mai Vy</span>
+            <span class="review-author">Gia Huy </span>
         </div>
         <div class="col-md-4 review-card">
-            <p class="review-text">"Lần đầu tại Metro và thấy rất tiện lợi. Đặt lịch, làm việc với Y Được 123, Đà liệu, Mẹ TP.HCM..."</p>
+            <p class="review-text">"Dịch vụ tư vấn bác sĩ qua video tiện thật. Mình bị stress, không muốn gặp đám đông nên mình tìm hiểu tư vấn khám từ xa với bác sĩ tâm lý ở bên đây. Thực sự quá tiện, bác sĩ tư vấn cũng rất chi tiết, nhẹ nhàng. Mình thấy đáng tiền lắm nha."</p>
             <span class="review-author">Mộc Trà</span>
         </div>
         <div class="col-md-4 review-card">
-            <p class="review-text">"Lần đầu tại Metro và thấy rất tiện lợi. Đặt lịch, làm việc với Y Được 123, Đà liệu, Mẹ TP.HCM..."</p>
-            <span class="review-author">Mộc Trà</span>
+            <p class="review-text">"Việc đặt lịch rất nhanh chóng, có thể đặt qua điện thoại, website hoặc app. Đặc biệt, phòng khám nhắc lịch trước một ngày nên tôi không lo quên. Khi đến nơi, tôi chỉ chờ chưa đến 5 phút là được gọi vào khám ngay."</p>
+            <span class="review-author">Quốc Tuấn </span>
         </div>
         <div class="col-md-4 review-card">
-            <p class="review-text">"Lần đầu tại Metro và thấy rất tiện lợi. Đặt lịch, làm việc với Y Được 123, Đà liệu, Mẹ TP.HCM..."</p>
-            <span class="review-author">Mộc Trà</span>
+            <p class="review-text">"Giá cả được niêm yết rõ ràng, không có chi phí phát sinh bất ngờ. Ngoài ra, phòng khám còn có nhiều chương trình ưu đãi hấp dẫn cho khách hàng thân thiết. Tôi cảm thấy số tiền mình bỏ ra hoàn toàn xứng đáng với chất lượng dịch vụ nhận được."</p>
+            <span class="review-author">Thế Cẩn </span>
         </div>
-        <button class="next-button">→</button>
+        <div class="col-md-4 review-card">
+            <p class="review-text">"Nhân viên lễ tân và phụ tá nha khoa rất chu đáo, luôn hỗ trợ tận tình từ khi bước vào cho đến khi ra về."</p>
+            <span class="review-author"> Thanh Thanh  </span>
+        </div>
     </div>
     </div>
 </section>
