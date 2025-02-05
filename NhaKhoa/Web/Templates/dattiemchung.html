@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đặt Lịch Tiêm Chủng</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .vaccine-card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .btn-book {
+            background-color: #28a745; /* Màu xanh lá cho nút đặt lịch */
+            color: white;
+        }
+
+        .btn-book:hover {
+            background-color: #218838; /* Màu xanh lá đậm khi hover */
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 class="text-center">Đặt Lịch Tiêm Chủng</h1>
+    <div class="row">
+        <!-- Thông tin tiêm chủng 1 -->
+        <div class="col-md-4">
+            <div class="vaccine-card">
+                <h3>Tiêm phòng cúm</h3>
+                <p>Giá: 250.000đ</p>
+                <button class="btn btn-book" data-bs-toggle="modal" data-bs-target="#bookingModal">Đặt lịch</button>
+            </div>
+        </div>
+        <!-- Thông tin tiêm chủng 2 -->
+        <div class="col-md-4">
+            <div class="vaccine-card">
+                <h3>Tiêm phòng sởi</h3>
+                <p>Giá: 300.000đ</p>
+                <button class="btn btn-book" data-bs-toggle="modal" data-bs-target="#bookingModal">Đặt lịch</button>
+            </div>
+        </div>
+        <!-- Thông tin tiêm chủng 3 -->
+        <div class="col-md-4">
+            <div class="vaccine-card">
+                <h3>Tiêm phòng viêm gan B</h3>
+                <p>Giá: 400.000đ</p>
+                <button class="btn btn-book" data-bs-toggle="modal" data-bs-target="#bookingModal">Đặt lịch</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Đặt Lịch -->
+<div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="bookingModalLabel">Đặt Lịch Tiêm Chủng</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="patientName" class="form-label">Họ và tên</label>
+                        <input type="text" class="form-control" id="patientName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="appointmentDate" class="form-label">Ngày đặt lịch</label>
+                        <input type="date" class="form-control" id="appointmentDate" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="patientPhone" class="form-label">Số điện thoại</label>
+                        <input type="tel" class="form-control" id="patientPhone" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-primary">Xác nhận đặt lịch</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
