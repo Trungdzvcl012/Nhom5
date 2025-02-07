@@ -1,105 +1,266 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đặt Lịch Theo Bác Sĩ</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Đặt Lịch Khám</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
-            background-color: #f8f9fa;
+            background-color: #007bff;
             font-family: 'Arial', sans-serif;
         }
-
         .container {
-            margin-top: 50px;
+            margin-top: 30px;
         }
-
-        .doctor-card {
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 20px;
-            margin-bottom: 20px;
+        .section-title {
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+            margin: 20px 0;
             text-align: center;
         }
-
-        .btn-book {
-            background-color: #28a745; /* Màu xanh lá cho nút đặt khám */
-            color: white;
+        .doctor-card {
+            border: 3px solid #a8d8ea; /* Màu xanh nhạt cho khung */
+            border-radius: 10px;
+            margin: 15px;
+            padding: 15px;
+            text-align: center;
+            transition: transform 0.2s;
+            background-color: white;
         }
-
-        .btn-book:hover {
-            background-color: #218838; /* Màu xanh lá đậm khi hover */
+        .doctor-card:hover {
+            transform: translateY(-5px);
+        }
+        .doctor-image {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        .modal-body {
+            text-align: center;
+        }
+        .pagination {
+            justify-content: center;
+        }
+        .btn-primary {
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1 class="text-center">Đặt Lịch Theo Bác Sĩ</h1>
-    <div class="row">
-        <!-- Thông tin bác sĩ 1 -->
-        <div class="col-md-4">
-            <div class="doctor-card">
-                <h3>Bác sĩ A</h3>
-                <p>Chuyên khoa: Nhi</p>
-                <p>Kinh nghiệm: 10 năm</p>
-                <button class="btn btn-book" data-bs-toggle="modal" data-bs-target="#bookingModal">Đặt lịch</button>
+    <div class="container">
+        <h2 class="section-title">Đặt Lịch Khám</h2>
+
+        <h4>Chọn bác sĩ</h4>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="doctor-card" data-toggle="modal" data-target="#doctorModal1">
+                    <img src="https://i.imgur.com/YOUR_DOCTOR_IMAGE_1.png" alt="Bác sĩ A" class="doctor-image">
+                    <h5>Bác sĩ A</h5>
+                    <p>Chuyên khoa: Nha khoa tổng quát</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="doctor-card" data-toggle="modal" data-target="#doctorModal2">
+                    <img src="https://i.imgur.com/YOUR_DOCTOR_IMAGE_2.png" alt="Bác sĩ B" class="doctor-image">
+                    <h5>Bác sĩ B</h5>
+                    <p>Chuyên khoa: Nha chu</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="doctor-card" data-toggle="modal" data-target="#doctorModal3">
+                    <img src="https://i.imgur.com/YOUR_DOCTOR_IMAGE_3.png" alt="Bác sĩ C" class="doctor-image">
+                    <h5>Bác sĩ C</h5>
+                    <p>Chuyên khoa: Niềng răng</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="doctor-card" data-toggle="modal" data-target="#doctorModal4">
+                    <img src="https://i.imgur.com/YOUR_DOCTOR_IMAGE_4.png" alt="Bác sĩ D" class="doctor-image">
+                    <h5>Bác sĩ D</h5>
+                    <p>Chuyên khoa: Thẩm mỹ răng</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="doctor-card" data-toggle="modal" data-target="#doctorModal5">
+                    <img src="https://i.imgur.com/YOUR_DOCTOR_IMAGE_5.png" alt="Bác sĩ E" class="doctor-image">
+                    <h5>Bác sĩ E</h5>
+                    <p>Chuyên khoa: Nha khoa trẻ em</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="doctor-card" data-toggle="modal" data-target="#doctorModal6">
+                    <img src="https://i.imgur.com/YOUR_DOCTOR_IMAGE_6.png" alt="Bác sĩ F" class="doctor-image">
+                    <h5>Bác sĩ F</h5>
+                    <p>Chuyên khoa: Chỉnh nha</p>
+                </div>
             </div>
         </div>
-        <!-- Thông tin bác sĩ 2 -->
-        <div class="col-md-4">
-            <div class="doctor-card">
-                <h3>Bác sĩ B</h3>
-                <p>Chuyên khoa: Tim mạch</p>
-                <p>Kinh nghiệm: 8 năm</p>
-                <button class="btn btn-book" data-bs-toggle="modal" data-bs-target="#bookingModal">Đặt lịch</button>
-            </div>
-        </div>
-        <!-- Thông tin bác sĩ 3 -->
-        <div class="col-md-4">
-            <div class="doctor-card">
-                <h3>Bác sĩ C</h3>
-                <p>Chuyên khoa: Nội khoa</p>
-                <p>Kinh nghiệm: 12 năm</p>
-                <button class="btn btn-book" data-bs-toggle="modal" data-bs-target="#bookingModal">Đặt lịch</button>
+
+        <h4 class="mt-4">Chọn dịch vụ</h4>
+        <select class="form-control mb-4">
+            <option>Khám và điều trị tổng quát</option>
+            <option>Chữa tủy răng</option>
+            <option>Niềng răng</option>
+        </select>
+
+        <h4>Chọn thời gian</h4>
+        <input type="datetime-local" class="form-control mb-4">
+
+        <button class="btn btn-primary btn-block">Đặt lịch khám</button>
+
+        <!-- Phần chuyển hướng trang -->
+        <nav aria-label="Page navigation" class="mt-4">
+            <ul class="pagination">
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Modal cho bác sĩ -->
+    <div class="modal fade" id="doctorModal1" tabindex="-1" role="dialog" aria-labelledby="doctorModalLabel1" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="doctorModalLabel1">Bác sĩ A</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Chuyên khoa: Nha khoa tổng quát</p>
+                    <p>Thông tin thêm về bác sĩ A, kinh nghiệm và các dịch vụ cung cấp.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-primary">Đặt lịch khám</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- Modal Đặt Lịch -->
-<div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="bookingModalLabel">Đặt Lịch Khám</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="mb-3">
-                        <label for="patientName" class="form-label">Họ và tên</label>
-                        <input type="text" class="form-control" id="patientName" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="appointmentDate" class="form-label">Ngày đặt lịch</label>
-                        <input type="date" class="form-control" id="appointmentDate" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="patientPhone" class="form-label">Số điện thoại</label>
-                        <input type="tel" class="form-control" id="patientPhone" required>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                <button type="button" class="btn btn-primary">Xác nhận đặt lịch</button>
+    <!-- Tương tự cho các modal bác sĩ B, C, D, E, F -->
+    <div class="modal fade" id="doctorModal2" tabindex="-1" role="dialog" aria-labelledby="doctorModalLabel2" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="doctorModalLabel2">Bác sĩ B</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Chuyên khoa: Nha chu</p>
+                    <p>Thông tin thêm về bác sĩ B, kinh nghiệm và các dịch vụ cung cấp.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-primary">Đặt lịch khám</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <div class="modal fade" id="doctorModal3" tabindex="-1" role="dialog" aria-labelledby="doctorModalLabel3" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="doctorModalLabel3">Bác sĩ C</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Chuyên khoa: Niềng răng</p>
+                    <p>Thông tin thêm về bác sĩ C, kinh nghiệm và các dịch vụ cung cấp.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-primary">Đặt lịch khám</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="doctorModal4" tabindex="-1" role="dialog" aria-labelledby="doctorModalLabel4" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="doctorModalLabel4">Bác sĩ D</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Chuyên khoa: Thẩm mỹ răng</p>
+                    <p>Thông tin thêm về bác sĩ D, kinh nghiệm và các dịch vụ cung cấp.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-primary">Đặt lịch khám</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="doctorModal5" tabindex="-1" role="dialog" aria-labelledby="doctorModalLabel5" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="doctorModalLabel5">Bác sĩ E</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Chuyên khoa: Nha khoa trẻ em</p>
+                    <p>Thông tin thêm về bác sĩ E, kinh nghiệm và các dịch vụ cung cấp.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-primary">Đặt lịch khám</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="doctorModal6" tabindex="-1" role="dialog" aria-labelledby="doctorModalLabel6" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="doctorModalLabel6">Bác sĩ F</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Chuyên khoa: Chỉnh nha</p>
+                    <p>Thông tin thêm về bác sĩ F, kinh nghiệm và các dịch vụ cung cấp.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-primary">Đặt lịch khám</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
