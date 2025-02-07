@@ -11,4 +11,6 @@ urlpatterns = [
     path('datbacsi/', views.datbacsi, name='datbacsi'),
     path('datxetnghiem/', views.datxetnghiem, name='datxetnghiem'),
     path('dattiemchung/', views.dattiemchung, name='dattiemchung'),
+    path('tuyendung/', views.tuyendung, name='tuyendung'),
+    path('quangcao/', views.quangcao, name='quangcao'),
 ]
