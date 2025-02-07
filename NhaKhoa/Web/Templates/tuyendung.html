@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/recruitment.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>Tuyển dụng</title>
+    <style>
+        body {
+            background-color: #f8f9fa; /* Màu nền nhẹ nhàng */
+        }
+
+        .custom-navbar {
+            background-color: #007bff; /* Màu nền navbar */
+        }
+
+        .navbar-brand img {
+            height: 60px; /* Kích thước logo */
+        }
+
+        .banner {
+            background-color: #0056b3; /* Màu nền banner */
+            color: white; /* Màu chữ trong banner */
+        }
+
+        .main-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .sub-title {
+            font-size: 1.25rem;
+            margin-top: 1rem;
+        }
+
+        .section-title {
+            color: #007bff; /* Màu tiêu đề phần */
+            margin-bottom: 1.5rem;
+        }
+
+        .benefits .col-md-4 {
+            border: 1px solid #007bff; /* Đường viền cho các phần quyền lợi */
+            border-radius: 10px;
+            padding: 1.5rem;
+            background-color: #ffffff; /* Nền trắng cho các phần quyền lợi */
+            transition: transform 0.3s ease;
+        }
+
+        .benefits .col-md-4:hover {
+            transform: scale(1.05); /* Hiệu ứng phóng to khi hover */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Hiệu ứng bóng */
+        }
+
+        .footer {
+            background-color: #343a40; /* Màu nền footer */
+        }
+
+        .footer p {
+            margin: 0; /* Xóa margin cho footer */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="{% static 'images/logo.png' %}" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a href="#" class="nav-link text-white">Trang chủ</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-white">Dịch vụ</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-white">Liên hệ</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link active text-white">Tuyển dụng</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Banner -->
+    <section class="banner text-center py-5">
+        <div class="container">
+            <h2 class="main-title">Cơ hội nghề nghiệp</h2>
+            <p class="sub-title">Gia nhập đội ngũ chuyên gia nha khoa hàng đầu</p>
+        </div>
+    </section>
+
+    <!-- Vị trí tuyển dụng -->
+    <section class="recruitment text-center py-5">
+        <div class="container">
+            <h3 class="section-title">Vị trí tuyển dụng: Chuyên gia Nha Khoa</h3>
+            <p class="lead">Chúng tôi đang tìm kiếm những ứng viên tài năng, có đam mê với lĩnh vực chăm sóc răng miệng và sức khỏe tổng quát.</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Yêu cầu công việc</h4>
+                    <ul class="list-group">
+                        <li class="list-group-item">Tốt nghiệp chuyên ngành Nha khoa (bằng cấp liên quan).</li>
+                        <li class="list-group-item">Có chứng chỉ hành nghề nha khoa.</li>
+                        <li class="list-group-item">Kinh nghiệm từ 2 năm trở lên trong lĩnh vực nha khoa.</li>
+                        <li class="list-group-item">Kỹ năng giao tiếp tốt, tận tâm với khách hàng.</li>
+                        <li class="list-group-item">Sử dụng thành thạo các công cụ và thiết bị nha khoa hiện đại.</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h4>Mô tả công việc</h4>
+                    <ul class="list-group">
+                        <li class="list-group-item">Thực hiện các dịch vụ nha khoa như khám, tư vấn, điều trị.</li>
+                        <li class="list-group-item">Đảm bảo chất lượng dịch vụ và sự hài lòng của khách hàng.</li>
+                        <li class="list-group-item">Phối hợp với các đồng nghiệp để xây dựng môi trường làm việc chuyên nghiệp.</li>
+                        <li class="list-group-item">Tham gia đào tạo và chia sẻ kinh nghiệm với đội ngũ.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quyền lợi -->
+    <section class="benefits text-center py-5 bg-light">
+        <div class="container">
+            <h3 class="section-title">Quyền lợi</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <i class="fas fa-money-check-alt fa-3x mb-3"></i>
+                    <h5>Mức lương hấp dẫn</h5>
+                    <p>Thu nhập cạnh tranh và thưởng theo năng lực.</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="fas fa-user-md fa-3x mb-3"></i>
+                    <h5>Môi trường chuyên nghiệp</h5>
+                    <p>Được làm việc trong môi trường hiện đại, chuyên nghiệp.</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="fas fa-graduation-cap fa-3x mb-3"></i>
+                    <h5>Đào tạo và phát triển</h5>
+                    <p>Tham gia các khóa đào tạo chuyên môn và kỹ năng.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cách ứng tuyển -->
+    <section class="apply text-center py-5">
+        <div class="container">
+            <h3 class="section-title">Cách ứng tuyển</h3>
+            <p>Ứng viên quan tâm vui lòng gửi CV và các giấy tờ liên quan qua email hoặc liên hệ trực tiếp với chúng tôi:</p>
+            <p><strong>Email:</strong>  info@example.com</p>
+            <p><strong>Số điện thoại:</strong> 123 456 789</p>
+            <p><strong>Địa chỉ:</strong> 02 Đường Võ Oanh, Quận Bình Thạnh, TP.HCM</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-4">
+        <div class="container text-center">
+            <p>&copy; 2024 Công ty TNHH XYZ. Tất cả quyền được bảo lưu.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
