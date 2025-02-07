@@ -58,3 +58,9 @@ def datxetnghiem(request):
 
 def dattiemchung(request):
     return render(request, 'dattiemchung.html')
+
+def tuyendung(request):
+    return render(request, 'tuyendung.html')
+    
+def quangcao(request):
+    return render(request, 'quangcao.html')
