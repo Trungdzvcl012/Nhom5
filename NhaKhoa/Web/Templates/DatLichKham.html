@@ -1,1 +1,152 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giao diện Phòng khám</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #007bff;
+            font-family: 'Arial', sans-serif;
+        }
+        .clinic-card {
+            background-color: #e0f7fa; /* Màu xanh nhạt cho thẻ phòng khám */
+            border-radius: 10px;
+            margin: 15px;
+            padding: 15px;
+            text-align: center;
+            transition: transform 0.2s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .clinic-card:hover {
+            transform: translateY(-5px);
+        }
+        .clinic-card img {
+            max-width: 100%;
+            border-radius: 10px;
+            height: 150px;
+            object-fit: contain;
+        }
+        .clinic-card h5 {
+            margin: 10px 0;
+            color: #343a40;
+        }
+        .clinic-card p {
+            color: #6c757d;
+        }
+        .title {
+            color: white; /* Màu chữ trắng */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Đổ bóng để nổi bật hơn */
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+        .btn-success {
+            background-color: #28a745;
+            border: none;
+        }
+        .btn:hover {
+            opacity: 0.9;
+        }
+        .container {
+            margin-top: 30px;
+        }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .pagination {
+            margin: 20px 0;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center my-4 title">Danh sách Phòng khám</h1>
+        <div class="row">
+            <div class="col-md-4 d-flex">
+                <div class="clinic-card flex-fill">
+                    <img src="https://i.imgur.com/YOUR_IMAGE_URL.png" alt="Phòng khám A">
+                    <h5>Phòng khám A</h5>
+                    <p>Đánh giá: ⭐⭐⭐⭐⭐</p>
+                    <a href="{% url 'xemchitiet' %}" class="btn btn-primary">Xem chi tiết</a>
+                    <a href="#" class="btn btn-success ml-2">Đặt lịch khám</a>
+                </div>
+            </div>
+            <div class="col-md-4 d-flex">
+                <div class="clinic-card flex-fill">
+                    <img src="https://i.imgur.com/YOUR_IMAGE_URL.png" alt="Phòng khám B">
+                    <h5>Phòng khám B</h5>
+                    <p>Đánh giá: ⭐⭐⭐⭐</p>
+                    <a href="#" class="btn btn-primary">Xem chi tiết</a>
+                    <a href="#" class="btn btn-success ml-2">Đặt lịch khám</a>
+                </div>
+            </div>
+            <div class="col-md-4 d-flex">
+                <div class="clinic-card flex-fill">
+                    <img src="https://i.imgur.com/YOUR_IMAGE_URL.png" alt="Phòng khám C">
+                    <h5>Phòng khám C</h5>
+                    <p>Đánh giá: ⭐⭐⭐⭐⭐</p>
+                    <a href="#" class="btn btn-primary">Xem chi tiết</a>
+                    <a href="#" class="btn btn-success ml-2">Đặt lịch khám</a>
+                </div>
+            </div>
+            <div class="col-md-4 d-flex">
+                <div class="clinic-card flex-fill">
+                    <img src="https://i.imgur.com/YOUR_IMAGE_URL.png" alt="Phòng khám D">
+                    <h5>Phòng khám D</h5>
+                    <p>Đánh giá: ⭐⭐⭐⭐</p>
+                    <a href="#" class="btn btn-primary">Xem chi tiết</a>
+                    <a href="#" class="btn btn-success ml-2">Đặt lịch khám</a>
+                </div>
+            </div>
+            <div class="col-md-4 d-flex">
+                <div class="clinic-card flex-fill">
+                    <img src="https://i.imgur.com/YOUR_IMAGE_URL.png" alt="Phòng khám E">
+                    <h5>Phòng khám E</h5>
+                    <p>Đánh giá: ⭐⭐⭐⭐⭐</p>
+                    <a href="#" class="btn btn-primary">Xem chi tiết</a>
+                    <a href="#" class="btn btn-success ml-2">Đặt lịch khám</a>
+                </div>
+            </div>
+            <div class="col-md-4 d-flex">
+                <div class="clinic-card flex-fill">
+                    <img src="https://i.imgur.com/YOUR_IMAGE_URL.png" alt="Phòng khám F">
+                    <h5>Phòng khám F</h5>
+                    <p>Đánh giá: ⭐⭐⭐⭐</p>
+                    <a href="#" class="btn btn-primary">Xem chi tiết</a>
+                    <a href="#" class="btn btn-success ml-2">Đặt lịch khám</a>
+                </div>
+            </div>
+        </div>
 
+        <!-- Phần chuyển hướng trang -->
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
