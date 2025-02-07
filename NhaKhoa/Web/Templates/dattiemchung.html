@@ -1,102 +1,122 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đặt Lịch Tiêm Chủng</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Đặt Lịch Tiêm Chủng Nha Khoa</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
-            background-color: #f8f9fa;
+            background-color: #007bff ;
             font-family: 'Arial', sans-serif;
         }
-
         .container {
-            margin-top: 50px;
+            margin-top: 30px;
         }
-
-        .vaccine-card {
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 20px;
-            margin-bottom: 20px;
+        .section-title {
             text-align: center;
+            margin-bottom: 20px;
+            color: white; /* Màu chữ trắng */
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7); /* Hiệu ứng đổ bóng */
         }
-
-        .btn-book {
-            background-color: #28a745; /* Màu xanh lá cho nút đặt lịch */
+        .vaccine-card {
+            border: 1px solid #007bff;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            background-color: white;
+            transition: transform 0.2s;
+        }
+        .vaccine-card:hover {
+            transform: scale(1.03);
+        }
+        .vaccine-price {
+            font-size: 1.5rem;
+            color: #28a745;
+        }
+        .btn-custom {
+            background-color: #007bff;
             color: white;
         }
-
-        .btn-book:hover {
-            background-color: #218838; /* Màu xanh lá đậm khi hover */
+        .bg-1 { background-color: #e7f1ff; }
+        .bg-2 { background-color: #ffebee; }
+        .bg-3 { background-color: #e8f5e9; }
+        .bg-4 { background-color: #fff3e0; }
+        .bg-5 { background-color: #fce4ec; }
+        .bg-6 { background-color: #e3f2fd; }
+        .pagination {
+            justify-content: center;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1 class="text-center">Đặt Lịch Tiêm Chủng</h1>
-    <div class="row">
-        <!-- Thông tin tiêm chủng 1 -->
-        <div class="col-md-4">
-            <div class="vaccine-card">
-                <h3>Tiêm phòng cúm</h3>
-                <p>Giá: 250.000đ</p>
-                <button class="btn btn-book" data-bs-toggle="modal" data-bs-target="#bookingModal">Đặt lịch</button>
-            </div>
+    <div class="container">
+        <h2 class="section-title">Đặt Lịch Tiêm Chủng Nha Khoa</h2>
+
+        <div class="vaccine-card bg-1">
+            <h5>Tiêm ngừa</h5>
+            <p>Giá: <span class="vaccine-price">160.000 VNĐ</span></p>
+            <p>Bệnh viện Phú Sân Thành Phố Cần Thơ</p>
+            <button class="btn btn-custom">Đặt khám ngay</button>
         </div>
-        <!-- Thông tin tiêm chủng 2 -->
-        <div class="col-md-4">
-            <div class="vaccine-card">
-                <h3>Tiêm phòng sởi</h3>
-                <p>Giá: 300.000đ</p>
-                <button class="btn btn-book" data-bs-toggle="modal" data-bs-target="#bookingModal">Đặt lịch</button>
-            </div>
+
+        <div class="vaccine-card bg-2">
+            <h5>Tiêm chủng Não mô cầu BC</h5>
+            <p>Giá: <span class="vaccine-price">Thanh toán tại cơ sở</span></p>
+            <p>Bệnh viện Vũng Tàu</p>
+            <button class="btn btn-custom">Đặt khám ngay</button>
         </div>
-        <!-- Thông tin tiêm chủng 3 -->
-        <div class="col-md-4">
-            <div class="vaccine-card">
-                <h3>Tiêm phòng viêm gan B</h3>
-                <p>Giá: 400.000đ</p>
-                <button class="btn btn-book" data-bs-toggle="modal" data-bs-target="#bookingModal">Đặt lịch</button>
-            </div>
+
+        <div class="vaccine-card bg-3">
+            <h5>Tiêm chủng Viêm gan siêu vi B người lớn</h5>
+            <p>Giá: <span class="vaccine-price">215.000 VNĐ</span></p>
+            <p>Trung tâm Kiểm soát Bệnh tật</p>
+            <button class="btn btn-custom">Đặt khám ngay</button>
+        </div>
+
+        <div class="vaccine-card bg-4">
+            <h5>Tiêm phòng cúm</h5>
+            <p>Giá: <span class="vaccine-price">150.000 VNĐ</span></p>
+            <p>Bệnh viện Đa khoa X</p>
+            <button class="btn btn-custom">Đặt khám ngay</button>
+        </div>
+
+        <div class="vaccine-card bg-5">
+            <h5>Tiêm phòng HPV</h5>
+            <p>Giá: <span class="vaccine-price">300.000 VNĐ</span></p>
+            <p>Bệnh viện Y tế Cộng đồng</p>
+            <button class="btn btn-custom">Đặt khám ngay</button>
+        </div>
+
+        <div class="vaccine-card bg-6">
+            <h5>Tiêm phòng thủy đậu</h5>
+            <p>Giá: <span class="vaccine-price">200.000 VNĐ</span></p>
+            <p>Trung tâm Y tế Dự phòng</p>
+            <button class="btn btn-custom">Đặt khám ngay</button>
+        </div>
+
+        <div class="pagination mt-4">
+            <ul class="pagination">
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
-</div>
 
-<!-- Modal Đặt Lịch -->
-<div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="bookingModalLabel">Đặt Lịch Tiêm Chủng</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="mb-3">
-                        <label for="patientName" class="form-label">Họ và tên</label>
-                        <input type="text" class="form-control" id="patientName" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="appointmentDate" class="form-label">Ngày đặt lịch</label>
-                        <input type="date" class="form-control" id="appointmentDate" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="patientPhone" class="form-label">Số điện thoại</label>
-                        <input type="tel" class="form-control" id="patientPhone" required>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                <button type="button" class="btn btn-primary">Xác nhận đặt lịch</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
