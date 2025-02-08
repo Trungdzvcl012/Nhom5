@@ -66,7 +66,11 @@ def quangcao(request):
     return render(request, 'quangcao.html')
 
 def thanhtoanvienphi(request):
-    return render(request, 'thanhtoanvienphi.html')
+    if request.method == "POST":
+        patient_name = request.POST.get('patientName')
+        patient_phone = request.POST.get('patientPhone')
+        return redirect('home') 
+    return render(request, 'thanhtoanvienphi.html') 
     
 def xem_chi_tiet(request):
     return render(request, 'xemchitiet.html')
