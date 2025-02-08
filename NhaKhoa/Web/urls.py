@@ -14,5 +14,6 @@ urlpatterns = [
     path('tuyendung/', views.tuyendung, name='tuyendung'),
     path('quangcao/', views.quangcao, name='quangcao'),
     path('thanhtoan/', views.thanhtoanvienphi, name='thanhtoanvienphi'),
-     path('xemchitiet/', views.xem_chi_tiet, name='xemchitiet'),
+    path('xemchitiet/', views.xem_chi_tiet, name='xemchitiet'),
+     path('dat-lich-kham/', views.dat_lich_kham, name='datlichkham'),
 ]
