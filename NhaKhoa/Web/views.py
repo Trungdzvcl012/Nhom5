@@ -74,3 +74,6 @@ def thanhtoanvienphi(request):
     
 def xem_chi_tiet(request):
     return render(request, 'xemchitiet.html')
+
+def dat_lich_kham(request):
+    return render(request, 'DatlichKham.html')
