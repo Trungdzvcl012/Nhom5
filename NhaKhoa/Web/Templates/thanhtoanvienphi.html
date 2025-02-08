@@ -63,11 +63,18 @@
             checkboxes.forEach((checkbox) => {
                 total += parseInt(checkbox.dataset.price);
             });
-            document.getElementById('totalAmount').innerText = total.toLocaleString() + 'đ';
+            document.getElementById('totalAmountDisplay').innerText = total.toLocaleString() + 'đ';
 
             // Hiện/ẩn nút thanh toán dựa trên việc có mục nào được chọn hay không
             const payButton = document.getElementById('payButton');
             payButton.style.display = total > 0 ? 'block' : 'none'; // Hiện/ẩn nút
+        }
+
+        function showPaymentModal() {
+            const totalAmount = document.getElementById('totalAmountDisplay').innerText;
+            document.getElementById('totalAmount').value = totalAmount; // Cập nhật tổng số tiền vào form
+            const paymentModal = new bootstrap.Modal(document.getElementById('paymentModal'));
+            paymentModal.show();
         }
 
         function confirmPayment() {
@@ -132,8 +139,37 @@
         </div>
     </div>
     <div class="text-center mt-4">
-        <h4 class="total-amount">Tổng số tiền: <span id="totalAmount">0đ</span></h4>
-        <button id="payButton" class="btn btn-pay" style="display: none;" onclick="confirmPayment()">Thanh Toán</button>
+        <h4 class="total-amount">Tổng số tiền: <span id="totalAmountDisplay">0đ</span></h4>
+        <button id="payButton" class="btn btn-pay" style="display: none;" onclick="showPaymentModal()">Thanh Toán</button>
+    </div>
+</div>
+
+<!-- Modal Thanh Toán -->
+<div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="paymentModalLabel">Thông Tin Thanh Toán</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form onsubmit="confirmPayment(); return false;"> <!-- Ngăn không cho form reload -->
+                    <div class="mb-3">
+                        <label for="patientName" class="form-label">Họ và tên</label>
+                        <input type="text" class="form-control" id="patientName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="patientPhone" class="form-label">Số điện thoại</label>
+                        <input type="tel" class="form-control" id="patientPhone" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="totalAmount" class="form-label">Tổng số tiền</label>
+                        <input type="text" class="form-control" id="totalAmount" readonly>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Xác nhận thanh toán</button>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 
