@@ -1,178 +1,202 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thanh Toán Viện Phí</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Giao diện Phòng khám</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
             background-color: #007bff;
             font-family: 'Arial', sans-serif;
         }
-        .container {
-            margin-top: 50px;
-            max-width: 800px;
-        }
-        .payment-card {
-            border: 1px solid #ddd;
+        .clinic-card {
+            background-color: #e0f7fa; /* Màu xanh nhạt cho thẻ phòng khám */
             border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 20px;
+            margin: 15px;
+            padding: 15px;
             text-align: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             transition: transform 0.2s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        .payment-card:hover {
-            transform: scale(1.02);
+        .clinic-card:hover {
+            transform: translateY(-5px);
         }
-        .card-1 { background-color: #d1e7dd; }
-        .card-2 { background-color: #cfe2ff; }
-        .card-3 { background-color: #f8d7da; }
-        .card-4 { background-color: #fff3cd; }
-        .card-5 { background-color: #d9f7be; }
-        .card-6 { background-color: #e2e3e5; }
-
-        .btn-pay {
-            background-color: #28a745; /* Màu xanh lá cho nút thanh toán */
-            color: white;
-            padding: 10px 20px;
-            font-size: 16px;
-        }
-        .btn-pay:hover {
-            background-color: #218838; /* Màu xanh lá đậm khi hover */
-        }
-        .total-amount {
-            font-size: 24px;
-            font-weight: bold;
-        }
-        h1 {
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-        .header-bg {
-            background-color: #6c757d; /* Màu nền cho tiêu đề */
-            padding: 20px;
+        .clinic-card img {
+            max-width: 100%;
             border-radius: 10px;
+            height: 150px;
+            object-fit: contain;
+        }
+        .clinic-card h5 {
+            margin: 10px 0;
+            color: #343a40;
+        }
+        .clinic-card p {
+            color: #6c757d;
+        }
+        .title {
+            color: white; /* Màu chữ trắng */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Đổ bóng để nổi bật hơn */
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+        .btn-success {
+            background-color: #28a745;
+            border: none;
+        }
+        .btn:hover {
+            opacity: 0.9;
+        }
+        .container {
+            margin-top: 30px;
+        }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .pagination {
+            margin: 20px 0;
+            justify-content: center;
         }
     </style>
-    <script>
-        function updateTotal() {
-            const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
-            let total = 0;
-            checkboxes.forEach((checkbox) => {
-                total += parseInt(checkbox.dataset.price);
-            });
-            document.getElementById('totalAmountDisplay').innerText = total.toLocaleString() + 'đ';
-
-            // Hiện/ẩn nút thanh toán dựa trên việc có mục nào được chọn hay không
-            const payButton = document.getElementById('payButton');
-            payButton.style.display = total > 0 ? 'block' : 'none'; // Hiện/ẩn nút
-        }
-
-        function showPaymentModal() {
-            const totalAmount = document.getElementById('totalAmountDisplay').innerText;
-            document.getElementById('totalAmount').value = totalAmount; // Cập nhật tổng số tiền vào form
-            const paymentModal = new bootstrap.Modal(document.getElementById('paymentModal'));
-            paymentModal.show();
-        }
-
-        function confirmPayment() {
-            // Hiển thị thông báo thanh toán thành công
-            alert('Thanh toán thành công!');
-
-            // Chuyển hướng về trang chủ sau 2 giây
-            setTimeout(() => {
-                window.location.href = '/'; // Thay đổi về đường dẫn trang chủ
-            }, 2000);
-        }
-    </script>
 </head>
 <body>
+    <div class="container">
+        <h1 class="text-center my-4 title">Danh sách Phòng khám</h1>
+        <div class="row">
+            <div class="col-md-4 d-flex">
+                <div class="clinic-card flex-fill">
+                    <img src="{% static 'images/AnHiep.png' %}" alt="Phòng khám A">
+                    <h5>Nha Khoa An Hiệp </h5>
+                    <p>Đánh giá: ⭐⭐⭐⭐⭐</p>
+                    <a href="{% url 'xemchitiet' %}" class="btn btn-primary">Xem chi tiết</a>
+                    <a href="#" class="btn btn-success ml-2" data-toggle="modal" data-target="#bookingModal">Đặt lịch khám</a>
+                </div>
+            </div>
+            <div class="col-md-4 d-flex">
+                <div class="clinic-card flex-fill">
+                    <img src="{% static 'images/Giadinh.png' %}" alt="Phòng khám B">
+                    <h5>Nha Khoa Gia Định </h5>
+                    <p>Đánh giá: ⭐⭐⭐⭐</p>
+                    <a href="#" class="btn btn-primary">Xem chi tiết</a>
+                    <a href="#" class="btn btn-success ml-2" data-toggle="modal" data-target="#bookingModal">Đặt lịch khám</a>
+                </div>
+            </div>
+            <div class="col-md-4 d-flex">
+                <div class="clinic-card flex-fill">
+                    <img src="{% static 'images/hanam.png' %}" alt="Phòng khám C">
+                    <h5>Nha Khoa Hà Nam </h5>
+                    <p>Đánh giá: ⭐⭐⭐⭐⭐</p>
+                    <a href="#" class="btn btn-primary">Xem chi tiết</a>
+                    <a href="#" class="btn btn-success ml-2" data-toggle="modal" data-target="#bookingModal">Đặt lịch khám</a>
+                </div>
+            </div>
+            <div class="col-md-4 d-flex">
+                <div class="clinic-card flex-fill">
+                    <img src="{% static 'images/truongphat.png' %}" alt="Phòng khám D">
+                    <h5>Nha Khoa Trường Phát</h5>
+                    <p>Đánh giá: ⭐⭐⭐⭐</p>
+                    <a href="#" class="btn btn-primary">Xem chi tiết</a>
+                    <a href="#" class="btn btn-success ml-2" data-toggle="modal" data-target="#bookingModal">Đặt lịch khám</a>
+                </div>
+            </div>
+            <div class="col-md-4 d-flex">
+                <div class="clinic-card flex-fill">
+                    <img src="{% static 'images/nhatminh.png' %}" alt="Phòng khám E">
+                    <h5>Nha Khoa Nhật Minh </h5>
+                    <p>Đánh giá: ⭐⭐⭐⭐⭐</p>
+                    <a href="#" class="btn btn-primary">Xem chi tiết</a>
+                    <a href="#" class="btn btn-success ml-2" data-toggle="modal" data-target="#bookingModal">Đặt lịch khám</a>
+                </div>
+            </div>
+            <div class="col-md-4 d-flex">
+                <div class="clinic-card flex-fill">
+                    <img src="{% static 'images/hongdiep.png' %}" alt="Phòng khám F">
+                    <h5>Nha Khoa Hồng Diệp </h5>
+                    <p>Đánh giá: ⭐⭐⭐⭐</p>
+                    <a href="#" class="btn btn-primary">Xem chi tiết</a>
+                    <a href="#" class="btn btn-success ml-2" data-toggle="modal" data-target="#bookingModal">Đặt lịch khám</a>
+                </div>
+            </div>
+        </div>
 
-<div class="container">
-    <div class="header-bg text-center mb-4">
-        <h1>Thanh Toán Viện Phí</h1>
-    </div>
-    <div class="row">
-        <div class="col-md-4">
-            <div class="payment-card card-1">
-                <h3>Tiền khám bệnh</h3>
-                <p>Giá: 500.000đ</p>
-                <input type="checkbox" data-price="500000" onchange="updateTotal()">
+        <!-- Phần modal Đặt lịch khám -->
+        <div class="modal fade" id="bookingModal" tabindex="-1" role="dialog" aria-labelledby="bookingModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="bookingModalLabel">Đặt Lịch Khám</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="bookingForm">
+                            <div class="form-group">
+                                <label for="patientName">Họ và tên</label>
+                                <input type="text" class="form-control" id="patientName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="patientPhone">Số điện thoại</label>
+                                <input type="tel" class="form-control" id="patientPhone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="appointmentDate">Ngày hẹn</label>
+                                <input type="date" class="form-control" id="appointmentDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="appointmentTime">Giờ hẹn</label>
+                                <input type="time" class="form-control" id="appointmentTime" required>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                        <button type="button" class="btn btn-success" onclick="confirmBooking()">Xác nhận</button>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="payment-card card-2">
-                <h3>Tiền xét nghiệm</h3>
-                <p>Giá: 300.000đ</p>
-                <input type="checkbox" data-price="300000" onchange="updateTotal()">
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="payment-card card-3">
-                <h3>Tiền tiêm chủng</h3>
-                <p>Giá: 250.000đ</p>
-                <input type="checkbox" data-price="250000" onchange="updateTotal()">
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="payment-card card-4">
-                <h3>Tiền thuốc</h3>
-                <p>Giá: 200.000đ</p>
-                <input type="checkbox" data-price="200000" onchange="updateTotal()">
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="payment-card card-5">
-                <h3>Tiền dịch vụ</h3>
-                <p>Giá: 150.000đ</p>
-                <input type="checkbox" data-price="150000" onchange="updateTotal()">
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="payment-card card-6">
-                <h3>Tiền tư vấn</h3>
-                <p>Giá: 100.000đ</p>
-                <input type="checkbox" data-price="100000" onchange="updateTotal()">
-            </div>
-        </div>
-    </div>
-    <div class="text-center mt-4">
-        <h4 class="total-amount">Tổng số tiền: <span id="totalAmountDisplay">0đ</span></h4>
-        <button id="payButton" class="btn btn-pay" style="display: none;" onclick="showPaymentModal()">Thanh Toán</button>
-    </div>
-</div>
 
-<!-- Modal Thanh Toán -->
-<div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="paymentModalLabel">Thông Tin Thanh Toán</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form onsubmit="confirmPayment(); return false;"> <!-- Ngăn không cho form reload -->
-                    <div class="mb-3">
-                        <label for="patientName" class="form-label">Họ và tên</label>
-                        <input type="text" class="form-control" id="patientName" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="patientPhone" class="form-label">Số điện thoại</label>
-                        <input type="tel" class="form-control" id="patientPhone" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="totalAmount" class="form-label">Tổng số tiền</label>
-                        <input type="text" class="form-control" id="totalAmount" readonly>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Xác nhận thanh toán</button>
-                </form>
-            </div>
-        </div>
+        <!-- Phần chuyển hướng trang -->
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
     </div>
-</div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function confirmBooking() {
+            const name = document.getElementById('patientName').value;
+            const phone = document.getElementById('patientPhone').value;
+            const date = document.getElementById('appointmentDate').value;
+            const time = document.getElementById('appointmentTime').value;
+
+            alert(`Đặt lịch thành công!\nTên: ${name}\nSĐT: ${phone}\nNgày: ${date}\nGiờ: ${time}`);
+            $('#bookingModal').modal('hide'); // Đóng modal sau khi xác nhận
+        }
+    </script>
 </body>
 </html>
