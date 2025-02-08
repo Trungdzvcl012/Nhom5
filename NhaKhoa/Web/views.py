@@ -64,3 +64,9 @@ def tuyendung(request):
     
 def quangcao(request):
     return render(request, 'quangcao.html')
+
+def thanhtoanvienphi(request):
+    return render(request, 'thanhtoanvienphi.html')
+    
+def xem_chi_tiet(request):
+    return render(request, 'xemchitiet.html')
