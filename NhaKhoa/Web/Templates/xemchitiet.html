@@ -1,1 +1,124 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới thiệu Phòng khám Nha khoa</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f0f4f8;
+            font-family: 'Arial', sans-serif;
+        }
+        .navbar {
+            background-color: #007bff;
+        }
+        .navbar-brand, .nav-link {
+            color: white !important;
+        }
+        .jumbotron {
+            background-color: #e0f7fa;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .section-title {
+            color: #007bff;
+            margin: 20px 0;
+        }
+        .service-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin: 15px;
+            padding: 15px;
+            text-align: center;
+            transition: transform 0.2s;
+            background-color: white;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        .service-image {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .history-image {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#">Phòng khám Nha Khoa</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Trang chủ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Giới thiệu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Dịch vụ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Liên hệ</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
+    <div class="container mt-4">
+        <div class="jumbotron">
+            <h1 class="display-4">Chào mừng đến với Phòng khám Nha khoa!</h1>
+            <p>Chúng tôi cung cấp dịch vụ chăm sóc răng miệng chất lượng cao với đội ngũ bác sĩ chuyên nghiệp.</p>
+        </div>
+
+        <h2 class="section-title text-center">Lịch sử thành lập</h2>
+        <p>Phòng khám Nha khoa của chúng tôi được thành lập vào năm 2010, với sứ mệnh mang lại sức khỏe răng miệng tốt nhất cho cộng đồng.</p>
+        <img src="https://i.imgur.com/YOUR_IMAGE_URL.png" alt="Hình ảnh phòng khám" class="history-image"> <!-- Thay đổi URL hình ảnh tại đây -->
+
+        <h2 class="section-title text-center">Các dịch vụ của chúng tôi</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="service-card">
+                    <img src="https://i.imgur.com/YOUR_SERVICE_IMAGE_1.png" alt="Khám và điều trị tổng quát" class="service-image"> <!-- Thay đổi URL hình ảnh tại đây -->
+                    <h5>Khám và điều trị tổng quát</h5>
+                    <p>Chúng tôi cung cấp dịch vụ khám và điều trị toàn diện cho bệnh nhân.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="service-card">
+                    <img src="https://i.imgur.com/YOUR_SERVICE_IMAGE_2.png" alt="Chữa tủy răng" class="service-image"> <!-- Thay đổi URL hình ảnh tại đây -->
+                    <h5>Chữa tủy răng</h5>
+                    <p>Dịch vụ chữa tủy răng hiệu quả và an toàn.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="service-card">
+                    <img src="https://i.imgur.com/YOUR_SERVICE_IMAGE_3.png" alt="Niềng răng" class="service-image"> <!-- Thay đổi URL hình ảnh tại đây -->
+                    <h5>Niềng răng</h5>
+                    <p>Cung cấp dịch vụ niềng răng thẩm mỹ với công nghệ hiện đại.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-info mt-4">
+            <h2 class="section-title text-center">Thông tin liên hệ</h2>
+            <p class="text-center"><strong>Địa chỉ:</strong> 123 Đường ABC, Thành phố XYZ</p>
+            <p class="text-center"><strong>Số điện thoại:</strong> (012) 345-6789</p>
+            <p class="text-center"><strong>Email:</strong> contact@phongkhamnhakhoa.com</p>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
