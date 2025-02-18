@@ -27,56 +27,57 @@
 
             <!-- Menu -->
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Cơ sở y tế
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Bệnh viện Công</a></li>
-                            <li><a class="dropdown-item" href="#">Bệnh viện Tư Nhân</a></li>
-                            <li><a class="dropdown-item" href="#">Phòng Khám</a></li>
-                            <li><a class="dropdown-item" href="#">Y tế tại nhà</a></li>
-                            <li><a class="dropdown-item" href="#">Tiêm chủng</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Dịch vụ
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Đặt khám tại cơ sở </a></li>
-                            <li><a class="dropdown-item" href="{% url 'datbacsi' %}">Đặt khám theo bác sĩ </a></li>
-                            <li><a class="dropdown-item" href="#">Gọi video với bác sĩ </a></li>
-                            <li><a class="dropdown-item" href="{% url 'datxetnghiem' %}">Đặt lịch xét nghiệm </a></li>
-                            <li><a class="dropdown-item" href="{% url 'dattiemchung' %}">Đặt lịch tiêm chủng </a></li>
-                            <li><a class="dropdown-item" href="#">Thanh toán viện phí </a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Hướng dẫn 
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Đặt lịch khám  </a></li>
-                            <li><a class="dropdown-item" href="#">Tư vấn khám bệnh qua video  </a></li>
-                            <li><a class="dropdown-item" href="#">Quy trình hoàn phí </a></li>
-                            <li><a class="dropdown-item" href="#">Quy trình đi khám </a></li>
-                            <li><a class="dropdown-item" href="#">Câu hỏi thường gặp </a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Liên hệ hợp tác
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Tham gia Hệ Thống Nature </a></li>
-                            <li><a class="dropdown-item" href="{% url 'quangcao' %}">Quảng cáo  </a></li>
-                            <li><a class="dropdown-item" href="{% url 'tuyendung' %}">Tuyển dụng </a></li>
-                            <li><a class="dropdown-item" href="#">Về Hệ Thống Y Khoa Nature  </a></li>
-                        </ul>
-                    </li>
-                </ul>
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Các chi nhánh phòng khám
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                                <li><a class="dropdown-item" href="#">Phòng khám A</a></li>
+                                <li><a class="dropdown-item" href="#">Phòng khám B</a></li>
+                                <li><a class="dropdown-item" href="#">Phòng khám C</a></li>
+                                <li><a class="dropdown-item" href="#">Phòng khám D</a></li>
+                                <li><a class="dropdown-item" href="#">Phòng khám E</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Dịch vụ
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                                <li><a class="dropdown-item" href="#">Đặt khám tại cơ sở </a></li>
+                                <li><a class="dropdown-item" href="{% url 'datbacsi' %}">Đặt khám theo bác sĩ </a></li>
+                                <li><a class="dropdown-item" href="#">Gọi video với bác sĩ </a></li>
+                                <li><a class="dropdown-item" href="{% url 'datxetnghiem' %}">Đặt lịch xét nghiệm </a></li>
+                                <li><a class="dropdown-item" href="{% url 'dattiemchung' %}">Đặt lịch tiêm chủng </a></li>
+                                <li><a class="dropdown-item" href="#">Thanh toán viện phí </a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Hướng dẫn 
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
+                                <li><a class="dropdown-item" href="#">Đặt lịch khám  </a></li>
+                                <li><a class="dropdown-item" href="#">Tư vấn khám bệnh qua video  </a></li>
+                                <li><a class="dropdown-item" href="#">Quy trình hoàn phí </a></li>
+                                <li><a class="dropdown-item" href="#">Quy trình đi khám </a></li>
+                                <li><a class="dropdown-item" href="#">Câu hỏi thường gặp </a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Liên hệ hợp tác
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown4">
+                                <li><a class="dropdown-item" href="#">Tham gia Hệ Thống Nature </a></li>
+                                <li><a class="dropdown-item" href="#">Quảng cáo  </a></li>
+                                <li><a class="dropdown-item" href="#">Tuyển dụng  </a></li>
+                                <li><a class="dropdown-item" href="#">Về Hệ Thống Y Khoa Nature  </a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
 
                 <!-- Tìm kiếm -->
                 <form class="d-flex ms-3" action="#" method="GET">
