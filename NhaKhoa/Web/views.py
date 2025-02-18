@@ -58,12 +58,19 @@ def datxetnghiem(request):
 
 def dattiemchung(request):
     return render(request, 'dattiemchung.html')
+    
+def tham_gia_he_thong_nature(request):
+    return render(request, 'tham_gia_he_thong_nature.html')
+
 
 def tuyendung(request):
     return render(request, 'tuyendung.html')
     
 def quangcao(request):
     return render(request, 'quangcao.html')
+
+def ve_he_thong_y_khoa_nature(request):
+    return render(request, 've_he_thong_y_khoa_nature.html')
 
 def thanhtoanvienphi(request):
     if request.method == "POST":
