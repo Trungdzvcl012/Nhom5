@@ -108,7 +108,7 @@ def logout_view(request):
     """Đăng xuất."""  # Note added
     logout(request)
     messages.success(request, "Bạn đã đăng xuất thành công.")
-    return redirect('home')
+    return redirect('login')
 
 def datbacsi(request):
     """Đặt bác sĩ."""  # Note added
