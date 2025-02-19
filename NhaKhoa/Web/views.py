@@ -122,6 +122,9 @@ def dattiemchung(request):
     """Đặt tiêm chủng."""  # Note added
     return render(request, 'dattiemchung.html')
 
+def tham_gia_he_thong_nature(request):
+    return render(request, 'tham_gia_he_thong_nature.html')
+
 def tuyendung(request):
     """Tuyển dụng."""  # Note added
     return render(request, 'tuyendung.html')
@@ -129,6 +132,9 @@ def tuyendung(request):
 def quangcao(request):
     """Quảng cáo."""  # Note added
     return render(request, 'quangcao.html')
+
+def ve_he_thong_y_khoa_nature(request):
+    return render(request, 've_he_thong_y_khoa_nature.html')
 
 def thanhtoanvienphi(request):
     """Thanh toán viện phí."""  # Note added
