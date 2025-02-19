@@ -145,4 +145,19 @@ def xem_chi_tiet(request):
 def dat_lich_kham(request):
     """Đặt lịch khám."""  # Note added
     return render(request, 'DatlichKham.html')
+
+def huong_dan_dat_lich_kham(request):
+    return render(request, 'huong_dan_dat_lich_kham.html')
+
+def tu_van_video(request):
+    return render(request, 'tu_van_video.html')
+
+def quy_trinh_hoan_phi(request):
+    return render(request, 'quy_trinh_hoan_phi.html')
+
+def quy_trinh_di_kham(request):
+    return render(request, 'quy_trinh_di_kham.html')
+
+def cau_hoi_thuong_gap(request):
+    return render(request, 'cau_hoi_thuong_gap.html')
     
