@@ -58,11 +58,12 @@
                             Hướng dẫn 
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
-                            <li><a class="dropdown-item" href="#">Đặt lịch khám  </a></li>
-                            <li><a class="dropdown-item" href="#">Tư vấn khám bệnh qua video  </a></li>
-                            <li><a class="dropdown-item" href="#">Quy trình hoàn phí </a></li>
-                            <li><a class="dropdown-item" href="#">Quy trình đi khám </a></li>
-                            <li><a class="dropdown-item" href="#">Câu hỏi thường gặp </a></li>
+                            <li><a class="dropdown-item" href="{% url 'dat_lich_kham' %}">Đặt lịch khám</a></li>
+                            <li><a class="dropdown-item" href="{% url 'tu_van_video' %}">Tư vấn khám bệnh qua video</a></li>
+                            <li><a class="dropdown-item" href="{% url 'quy_trinh_hoan_phi' %}">Quy trình hoàn phí</a></li>
+                            <li><a class="dropdown-item" href="{% url 'quy_trinh_di_kham' %}">Quy trình đi khám</a></li>
+                            <li><a class="dropdown-item" href="{% url 'cau_hoi_thuong_gap' %}">Câu hỏi thường gặp</a></li>
+
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
