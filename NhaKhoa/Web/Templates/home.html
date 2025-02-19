@@ -1,29 +1,304 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quy trình hoàn phí</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <title>Home</title>
+  
 </head>
 <body>
-    <div class="container mt-5">
-        <h2 class="text-primary">Quy trình hoàn phí</h2>
-        <p class="text-muted">Quy trình giúp bạn hoàn phí một cách nhanh chóng và dễ dàng.</p>
+    <!-- Navbar với Logo và Menu -->
+    <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+        <div class="container-fluid">
+            <!-- Logo -->
+            <a class="navbar-brand" href="#">
+                <img src="{% static 'images/logo.png' %}" alt="Logo">
+            </a>
 
-        <div class="card p-4 shadow-sm">
-            <h5>Bước 1: Bạn điền đầy đủ thông tin vào form hoàn phí </h5>
-            
+            <!-- Menu toggle cho mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-            <h5>Bước 2: Gửi yêu cầu hoàn phí đến email của NhaKhoa</h5>
-            <p>Nhớ có thông tin lý do hoàn phí và xác nhận.</p>
+            <!-- Menu -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Các chi nhánh phòng khám
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                            <li><a class="dropdown-item" href="#">Phòng khám A</a></li>
+                            <li><a class="dropdown-item" href="#">Phòng khám B</a></li>
+                            <li><a class="dropdown-item" href="#">Phòng khám C</a></li>
+                            <li><a class="dropdown-item" href="#">Phòng khám D</a></li>
+                            <li><a class="dropdown-item" href="#">Phòng khám E</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Dịch vụ
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                            <li><a class="dropdown-item" href="{% url 'datlichkham' %}">Đặt khám tại cơ sở </a></li>
+                            <li><a class="dropdown-item" href="{% url 'datbacsi' %}">Đặt khám theo bác sĩ </a></li>
+                            <li><a class="dropdown-item" href="#">Gọi video với bác sĩ </a></li>
+                            <li><a class="dropdown-item" href="{% url 'datxetnghiem' %}">Đặt lịch xét nghiệm </a></li>
+                            <li><a class="dropdown-item" href="{% url 'dattiemchung' %}">Đặt lịch tiêm chủng </a></li>
+                            <li><a class="dropdown-item" href="{% url 'thanhtoanvienphi' %}">Thanh toán viện phí </a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Hướng dẫn 
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
+                            <li><a class="dropdown-item" href="{% url 'huong_dan_dat_lich_kham' %}">Hướng dẫn đặt lịch khám</a></li>
+                            <li><a class="dropdown-item" href="{% url 'tu_van_video' %}">Tư vấn khám bệnh qua video</a></li>
+                            <li><a class="dropdown-item" href="{% url 'quy_trinh_hoan_phi' %}">Quy trình hoàn phí</a></li>
+                            <li><a class="dropdown-item" href="{% url 'quy_trinh_di_kham' %}">Quy trình đi khám</a></li>
+                            <li><a class="dropdown-item" href="{% url 'cau_hoi_thuong_gap' %}">Câu hỏi thường gặp</a></li>
 
-            <h5>Bước 3: Chúng tôi sẽ xác nhận và gửi email đến bạn</h5>
-            <p>Yêu cầu sẽ được kiểm tra và xử lý trong vòng 3-5 ngày làm việc.</p>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Liên hệ hợp tác
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown4">
+                            <li><a class="dropdown-item" href="{% url 'tham_gia_he_thong_nature' %}">Tham gia Hệ Thống Nature</a></li>
+                            <li><a class="dropdown-item" href="{% url 'quangcao' %}">Quảng cáo</a></li>
+                            <li><a class="dropdown-item" href="{% url 'tuyendung' %}">Tuyển dụng</a></li>
+                            <li><a class="dropdown-item" href="{% url 've_he_thong_y_khoa_nature' %}">Về Hệ Thống Y Khoa Nature</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+                <!-- Tìm kiếm -->
+                <form class="d-flex ms-3" action="#" method="GET">
+                    <input class="form-control me-2" type="search" placeholder="Tìm kiếm" aria-label="Tìm kiếm">
+                    <button class="btn btn-outline-light" type="submit">Tìm</button>
+                </form>
 
-            <h5>Bước 4: Nhận tiền hoàn trả</h5>
-            <p>Số tiền sẽ được hoàn vào tài khoản bạn đã sử dụng khi thanh toán.</p>
+                <!-- Đăng nhập / Đăng ký hoặc Đăng xuất -->
+                <div class="ms-3">
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'logout' %}" class="btn btn-danger">Đăng xuất</a>
+                    {% else %}
+                        <a href="{% url 'login' %}" class="btn btn-login">Đăng nhập</a>
+                        <a href="{% url 'register' %}" class="btn btn-register">Đăng ký</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </nav>
+       <!-- Banner -->
+    <section style="position: relative; width: 100%; height: 300px; overflow: hidden;">
+        <img src="{% static 'images/background.png' %}" 
+            alt="Background Image" 
+            style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: -1;">
+    </section>
+    <!-- Dịch vụ -->
+    <section class="services text-center py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="service-box">
+                        <i class="fas fa-calendar-check"></i>
+                        <p>Đặt khám tại cơ sở</p>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="service-box">
+                        <i class="fas fa-user-md"></i>
+                        <p>Đặt khám theo bác sĩ</p>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="service-box">
+                        <i class="fas fa-video"></i>
+                        <p>Gọi video với bác sĩ</p>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="service-box">
+                        <i class="fas fa-flask"></i>
+                        <p>Đặt lịch xét nghiệm</p>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="service-box">
+                        <i class="fas fa-syringe"></i>
+                        <p>Đặt lịch tiêm chủng</p>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="service-box">
+                        <i class="fas fa-home"></i>
+                        <p>Y tế tại nhà</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Phần tin tưởng hợp tác và đồng hành -->
+    <section class="partners text-center py-4">
+        <div class="container">
+            <h2>Được tin tưởng hợp tác và đồng hành</h2>
+            <div class="row justify-content-center">
+                <div class="col-auto">
+                    <img src="{% static 'images/AnHiep.png' %}" alt="Bệnh viện Trưng Vương" class="partner-logo">
+                </div>
+                <div class="col-auto">
+                    <img src="{% static 'images/DrTiep.png' %}" alt="Bệnh viện Nhi Đồng 1" class="partner-logo">
+                </div>
+                <div class="col-auto">
+                    <img src="{% static 'images/Giadinh.png' %}" alt="Bệnh viện Đại học Y Dược TP.HCM" class="partner-logo">
+                </div>
+                <div class="col-auto">
+                    <img src="{% static 'images/hanam.png' %}" alt="Bệnh viện Đa Khoa Bưu Điện" class="partner-logo">
+                </div>
+                <div class="col-auto">
+                    <img src="{% static 'images/hongdiep.png' %}" alt="Bệnh viện Chấn Thương Chỉnh Hình TP.HCM" class="partner-logo">
+                </div>
+                <div class="col-auto">
+                    <img src="{% static 'images/nhatminh.png' %}" alt="Bệnh viện Chợ Rẫy" class="partner-logo">
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- Phần chăm sóc sức khỏe toàn diện -->
+<section class="health-care text-center py-5">
+    <div class="container">
+        <h2 class="section-title">Chăm sóc sức khỏe toàn diện</h2>
+        <div class="row">
+            <div class="col-md-4 service-card">
+                <h3><span>Sức khỏe</span></h3>
+                <p>Gói khám sức khỏe tổng quát năm</p>
+                <span class="price">500.000đ</span>
+                <a href="#" class=" btn-book">Đặt khám ngay</a> 
+            </div>
+            <div class="col-md-4 service-card">
+                <h3><span>Xét nghiệm</span></h3>
+                <p>Gói xét nghiệm máu cơ bản</p>
+                <span class="price">300.000đ</span>
+                <a href="#" class=" btn-book">Đặt khám ngay</a> 
+            </div>
+            <div class="col-md-4 service-card">
+                <h3><span>Tiêm chủng</span></h3>
+                <p>Tiêm phòng cúm hàng năm</p>
+                <span class="price">250.000đ</span>
+                <a href="#" class=" btn-book">Đặt khám ngay</a>
+            </div>
         </div>
     </div>
+</section>
+<!-- Phần đánh giá của khách hàng -->
+<section class="customer-reviews text-center py-5">
+    <div class="container">
+        <h2 class="section-title">Cảm nhận từ khách hàng</h2>
+        <div class="row">
+            <div class="col-md-4 review-card">
+                <p class="review-text">"Đặt lịch xét nghiệm bên này rất gọn, có cả dịch vụ làm ở nhà nữa. Không cần phải đến bệnh viện." </p>
+                <span class="review-author">Trần Khải </span>
+        </div>
+        <div class="col-md-4 review-card">
+            <p class="review-text">"Dịch vụ từ tư vấn đến video hướng dẫn, mình rất hài lòng. Nhân viên tư vấn rất nhiệt tình và chu đáo." </p>
+            <span class="review-author">Gia Huy </span>
+        </div>
+        <div class="col-md-4 review-card">
+            <p class="review-text">"Dịch vụ tư vấn bác sĩ qua video tiện thật. Mình bị stress, không muốn gặp đám đông nên mình tìm hiểu tư vấn khám từ xa với bác sĩ tâm lý ở bên đây. Thực sự quá tiện, bác sĩ tư vấn cũng rất chi tiết, nhẹ nhàng. Mình thấy đáng tiền lắm nha."</p>
+            <span class="review-author">Mộc Trà</span>
+        </div>
+        <div class="col-md-4 review-card">
+            <p class="review-text">"Việc đặt lịch rất nhanh chóng, có thể đặt qua điện thoại, website hoặc app. Đặc biệt, phòng khám nhắc lịch trước một ngày nên tôi không lo quên. Khi đến nơi, tôi chỉ chờ chưa đến 5 phút là được gọi vào khám ngay."</p>
+            <span class="review-author">Quốc Tuấn </span>
+        </div>
+        <div class="col-md-4 review-card">
+            <p class="review-text">"Giá cả được niêm yết rõ ràng, không có chi phí phát sinh bất ngờ. Ngoài ra, phòng khám còn có nhiều chương trình ưu đãi hấp dẫn cho khách hàng thân thiết. Tôi cảm thấy số tiền mình bỏ ra hoàn toàn xứng đáng với chất lượng dịch vụ nhận được."</p>
+            <span class="review-author">Thế Cẩn </span>
+        </div>
+        <div class="col-md-4 review-card">
+            <p class="review-text">"Nhân viên lễ tân và phụ tá nha khoa rất chu đáo, luôn hỗ trợ tận tình từ khi bước vào cho đến khi ra về."</p>
+            <span class="review-author"> Thanh Thanh  </span>
+        </div>
+    </div>
+    </div>
+</section>
+    <!-- Nội dung chính -->
+    <div class="container py-4">
+        <!-- Danh sách phòng khám -->
+        <div class="row">
+            {% for clinic in clinics %}
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ clinic.name }}</h5>
+                            <p class="card-text">Địa chỉ: {{ clinic.location }}</p>
+                            <a href="{% url 'book_appointment' clinic.id %}" class="btn btn-success">Đặt lịch</a>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <p>Không có phòng khám nào.</p>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <!-- Logo & Liên hệ -->
+                <div class="col-md-3 footer-logo">
+                    <img src="{% static 'images/logo.png' %}" alt="Logo">
+                    <div class="contact-info mt-3">
+                        <p><strong>Địa chỉ:</strong> 02 Đường Võ Oanh, Quận Bình Thạnh, TP.HCM</p>
+                        <p><strong>Số điện thoại:</strong> 123 456 789</p>
+                        <p><strong>Email:</strong> info@example.com</p>
+                    </div>
+                </div>
+
+                <!-- Liên kết nhanh -->
+                <div class="col-md-3 quick-links">
+                    <h5>Liên kết nhanh</h5>
+                    <ul>
+                        <li><a href="#">Trang chủ</a></li>
+                        <li><a href="#">Dịch vụ</a></li>
+                        <li><a href="#">Về chúng tôi</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                    </ul>
+                </div>
+
+                <!-- Mạng xã hội -->
+                <div class="col-md-3">
+                    <h5>Mạng xã hội</h5>
+                    <div class="social-icons">
+                        <a href="#" class="fab fa-facebook-f" target="_blank"></a>
+                        <a href="#" class="fab fa-instagram" target="_blank"></a>
+                        <a href="#" class="fab fa-twitter" target="_blank"></a>
+                        <a href="#" class="fab fa-youtube" target="_blank"></a>
+                        <a href="#" class="fab fa-linkedin-in" target="_blank"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer bottom -->
+        <div class="footer-bottom">
+            <p>&copy; 2024 Công ty TNHH XYZ. Tất cả quyền được bảo lưu.</p>
+        </div>
+    </footer>
+
+
+    <!-- Thêm các script cần thiết cho Bootstrap -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
