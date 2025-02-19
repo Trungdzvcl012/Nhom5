@@ -75,7 +75,7 @@
                     <h5>Nha Khoa An Hiệp </h5>
                     <p>Đánh giá: ⭐⭐⭐⭐⭐</p>
                     <a href="{% url 'xemchitiet' %}" class="btn btn-primary">Xem chi tiết</a>
-                    <a href="#" class="btn btn-success ml-2">Đặt lịch khám</a>
+                    <a href="#" class="btn btn-success ml-2" data-toggle="modal" data-target="#bookingModal">Đặt lịch khám</a>
                 </div>
             </div>
             <div class="col-md-4 d-flex">
@@ -83,8 +83,8 @@
                     <img src="{% static 'images/Giadinh.png' %}" alt="Phòng khám B">
                     <h5>Nha Khoa Gia Định </h5>
                     <p>Đánh giá: ⭐⭐⭐⭐</p>
-                    <a href="#" class="btn btn-primary">Xem chi tiết</a>
-                    <a href="#" class="btn btn-success ml-2">Đặt lịch khám</a>
+                    <a href="{% url 'xemchitiet' %}" class="btn btn-primary">Xem chi tiết</a>
+                    <a href="#" class="btn btn-success ml-2" data-toggle="modal" data-target="#bookingModal">Đặt lịch khám</a>
                 </div>
             </div>
             <div class="col-md-4 d-flex">
@@ -92,8 +92,8 @@
                     <img src="{% static 'images/hanam.png' %}" alt="Phòng khám C">
                     <h5>Nha Khoa Hà Nam </h5>
                     <p>Đánh giá: ⭐⭐⭐⭐⭐</p>
-                    <a href="#" class="btn btn-primary">Xem chi tiết</a>
-                    <a href="#" class="btn btn-success ml-2">Đặt lịch khám</a>
+                    <a href="{% url 'xemchitiet' %}" class="btn btn-primary">Xem chi tiết</a>
+                    <a href="#" class="btn btn-success ml-2" data-toggle="modal" data-target="#bookingModal">Đặt lịch khám</a>
                 </div>
             </div>
             <div class="col-md-4 d-flex">
@@ -101,8 +101,8 @@
                     <img src="{% static 'images/truongphat.png' %}" alt="Phòng khám D">
                     <h5>Nha Khoa Trường Phát</h5>
                     <p>Đánh giá: ⭐⭐⭐⭐</p>
-                    <a href="#" class="btn btn-primary">Xem chi tiết</a>
-                    <a href="#" class="btn btn-success ml-2">Đặt lịch khám</a>
+                    <a href="{% url 'xemchitiet' %}" class="btn btn-primary">Xem chi tiết</a>
+                    <a href="#" class="btn btn-success ml-2" data-toggle="modal" data-target="#bookingModal">Đặt lịch khám</a>
                 </div>
             </div>
             <div class="col-md-4 d-flex">
@@ -110,8 +110,8 @@
                     <img src="{% static 'images/nhatminh.png' %}" alt="Phòng khám E">
                     <h5>Nha Khoa Nhật Minh </h5>
                     <p>Đánh giá: ⭐⭐⭐⭐⭐</p>
-                    <a href="#" class="btn btn-primary">Xem chi tiết</a>
-                    <a href="#" class="btn btn-success ml-2">Đặt lịch khám</a>
+                    <a href="{% url 'xemchitiet' %}" class="btn btn-primary">Xem chi tiết</a>
+                    <a href="#" class="btn btn-success ml-2" data-toggle="modal" data-target="#bookingModal">Đặt lịch khám</a>
                 </div>
             </div>
             <div class="col-md-4 d-flex">
@@ -119,10 +119,50 @@
                     <img src="{% static 'images/hongdiep.png' %}" alt="Phòng khám F">
                     <h5>Nha Khoa Hồng Diệp </h5>
                     <p>Đánh giá: ⭐⭐⭐⭐</p>
-                    <a href="#" class="btn btn-primary">Xem chi tiết</a>
-                    <a href="#" class="btn btn-success ml-2">Đặt lịch khám</a>
+                    <a href="{% url 'xemchitiet' %}" class="btn btn-primary">Xem chi tiết</a>
+                    <a href="#" class="btn btn-success ml-2" data-toggle="modal" data-target="#bookingModal">Đặt lịch khám</a>
                 </div>
             </div>
+        </div>
+        <div class="modal fade" id="bookingModal" tabindex="-1" role="dialog" aria-labelledby="bookingModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="bookingModalLabel">Đặt Lịch Khám</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="bookingForm">
+                            <div class="form-group">
+                                <label for="patientName">Họ và tên</label>
+                                <input type="text" class="form-control" id="patientName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="patientPhone">Số điện thoại</label>
+                                <input type="tel" class="form-control" id="patientPhone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="appointmentDate">Ngày hẹn</label>
+                                <input type="date" class="form-control" id="appointmentDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="appointmentTime">Giờ hẹn</label>
+                                <input type="time" class="form-control" id="appointmentTime" required>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                        <button type="button" class="btn btn-success" onclick="confirmBooking()">Xác nhận</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center my-4">
+            <a href="{% url 'home' %}" class="btn btn-primary">Quay về trang chủ</a>
         </div>
 
         <!-- Phần chuyển hướng trang -->
@@ -149,5 +189,16 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function confirmBooking() {
+            const name = document.getElementById('patientName').value;
+            const phone = document.getElementById('patientPhone').value;
+            const date = document.getElementById('appointmentDate').value;
+            const time = document.getElementById('appointmentTime').value;
+
+            alert(`Đặt lịch thành công!\nTên: ${name}\nSĐT: ${phone}\nNgày: ${date}\nGiờ: ${time}`);
+            $('#bookingModal').modal('hide');
+        }
+    </script>
 </body>
 </html>
