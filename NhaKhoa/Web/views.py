@@ -1,16 +1,12 @@
 from django.shortcuts import render, redirect
-from .forms import CustomUserCreationForm, KhachHangForm
+from .forms import CustomUserCreationForm  # Chỉ import form cần thiết
 from django.contrib.auth import login, logout, authenticate
 
 from django.contrib import messages
 from .models import DentalClinic, Appointment, KhachHang
 from django.contrib.auth.decorators import login_required
-from django.views.decorators.http import require_http_methods
-import pyodbc
-
-import logging
 from django.db import transaction, IntegrityError
-
+import logging
 logger = logging.getLogger(__name__)
 
 def home(request):
@@ -51,50 +47,57 @@ def login_view(request):
 
     return render(request, 'login.html')
 
-@transaction.atomic  # Note added: Đảm bảo tính toàn vẹn dữ liệu
+@transaction.atomic
 def register_view(request):
-    """Xử lý đăng ký."""  # Note added
     if request.method == 'POST':
         user_form = CustomUserCreationForm(request.POST)
-        khach_hang_form = KhachHangForm(request.POST)
 
-        if user_form.is_valid() and khach_hang_form.is_valid():
+        if user_form.is_valid():  # Chỉ validate user form trước
             try:
-                with transaction.atomic():
-                    user = user_form.save(commit=False)
-                    user.set_password(user_form.cleaned_data['password2'])
-                    user.save()
+                user = user_form.save(commit=False)
+                user.set_password(user_form.cleaned_data['password2'])
+                user.save()
 
-                    khach_hang = khach_hang_form.save(commit=False)
-                    khach_hang.user = user
-                    khach_hang.save()
+                # Tạo KhachHang sau khi user đã được lưu
+                khach_hang = KhachHang(
+                    user=user,
+                    ten=user_form.cleaned_data['ho_ten'],
+                    sdt=user_form.cleaned_data['sdt'],
+                    ten_dn=user.username,
+                    email=user.email
+                )
+                khach_hang.save()
 
-                    user = authenticate(request, username=user_form.cleaned_data['username'], password=user_form.cleaned_data['password2'], backend='Web.backends.SQLServerAuthBackend')
-                    if user is not None:
-                        login(request, user)
-                        messages.success(request, "Đăng ký thành công!")
-                        return redirect('home')
-                    else:
-                        messages.error(request, "Lỗi xác thực. Vui lòng thử lại.")  # Should not happen, but good to check
+                user = authenticate(
+                    request,
+                    username=user_form.cleaned_data['username'],
+                    password=user_form.cleaned_data['password2'],
+                    backend='Web.backends.SQLServerAuthBackend'
+                )
+                if user is not None:
+                    login(request, user)
+                    messages.success(request, "Đăng ký thành công!")
+                    return redirect('home')
+                else:
+                    messages.error(request, "Lỗi xác thực. Vui lòng thử lại.")
 
             except IntegrityError as e:
                 if "UNIQUE constraint" in str(e).lower():
                     messages.error(request, "Tên người dùng hoặc email đã tồn tại.")
                 else:
                     messages.error(request, "Lỗi cơ sở dữ liệu. Vui lòng thử lại.")
-
+                transaction.rollback() # Rollback nếu có lỗi Integrity
             except Exception as e:
-                logger.exception("Lỗi không mong đợi trong quá trình đăng ký:")  # Note added: In tiếng Việt
+                logger.exception("Lỗi không mong đợi trong quá trình đăng ký:")
                 messages.error(request, "Có lỗi xảy ra trong quá trình đăng ký. Vui lòng thử lại sau.")
-
+                transaction.rollback() # Rollback nếu có lỗi
         else:
-            messages.error(request, "Đăng ký thất bại. Vui lòng kiểm tra lại thông tin.")
+            messages.error(request, "Đăng ký thất bại. Vui lòng kiểm tra lại thông tin.")  # Lỗi form
 
     else:
         user_form = CustomUserCreationForm()
-        khach_hang_form = KhachHangForm()
 
-    return render(request, 'register.html', {'user_form': user_form, 'khach_hang_form': khach_hang_form})
+    return render(request, 'register.html', {'user_form': user_form})
 
 def lay_thong_tin_khach_hang(username):
     """Lấy thông tin khách hàng."""  # Note added
