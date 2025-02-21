@@ -1,4 +1,3 @@
---DATABASE WEB_KHAM_BENH
 CREATE TABLE PHONG_KHAM (  
     ID_PK VARCHAR(4) PRIMARY KEY,  
     TEN NVARCHAR(255),  
@@ -11,7 +10,9 @@ CREATE TABLE BAC_SI (
     SDT INT,  
     EMAIL NVARCHAR(255),  
     TEN_DN NVARCHAR(255),  
-    MAT_KHAU NVARCHAR(255)  
+    MAT_KHAU INT,
+	CHUYEN_KHOA NVARCHAR (255),
+	KINH_NGHIEM NVARCHAR(4000)
 );  
 
 CREATE TABLE KHACH_HANG (  
@@ -20,7 +21,7 @@ CREATE TABLE KHACH_HANG (
     SDT INT,  
     EMAIL NVARCHAR(255),  
     TEN_DN NVARCHAR(255),  
-    MAT_KHAU NVARCHAR(255)  
+    MAT_KHAU INT  
 );  
 
 CREATE TABLE DICH_VU_KHAM (  
@@ -70,28 +71,29 @@ CREATE TABLE CHI_TIET_HOA_DON (
 );
 
 -- ADD DỮ LIỆU VÀO BẢNG BAC_SI
-INSERT INTO BAC_SI (ID_BS, TEN, SDT, EMAIL, TEN_DN, MAT_KHAU)  
-VALUES   
-('BS01', 'Nguyễn Văn An', '0123456789', 'annguyen@gmail.com', 'nguyenvanan', '12345'),  
-('BS02', 'Trần Thị Bình', '0123456780', 'binhtran@gmail.com', 'tranthibinh', '12345'),  
-('BS03', 'Phạm Minh Cường', '0123456781', 'cuongpham@gmail.com', 'phamminhcuong', '12345'),  
-('BS04', 'Lê Thị Dung', '0123456782', 'dungle@gmail.com', 'lethidung', '12345'),  
-('BS05', 'Nguyễn Thế Hùng', '0123456783', 'hungnguyen@gmail.com', 'nguyenthehung', '12345'),  
-('BS06', 'Trần Văn Kiện', '0123456784', 'kientran@gmail.com', 'tranvankien', '12345'),  
-('BS07', 'Phan Thị Lan', '0123456785', 'lanphan@gmail.com', 'phanthilan', '12345'),  
-('BS08', 'Nguyễn Văn Minh', '0123456786', 'minhnguyen@gmail.com', 'nguyenvanminh', '12345'),  
-('BS09', 'Lê Văn Nam', '0123456787', 'namle@gmail.com', 'levannam', '12345'),  
-('BS10', 'Trần Thị Oanh', '0123456788', 'oanhtran@gmail.com', 'tranthioanh', '12345'),  
-('BS11', 'Nguyễn Minh Quang', '0123456789', 'quangnguyen@gmail.com', 'nguyenminhquang', '12345'),  
-('BS12', 'Phạm Thị Hương', '0123456790', 'huongpham@gmail.com', 'phamthihuong', '12345'),  
-('BS13', 'Lê Văn Phúc', '0123456791', 'phucle@gmail.com', 'levanphuc', '12345'),  
-('BS14', 'Nguyễn Văn Sơn', '0123456792', 'sonnguyen@gmail.com', 'nguyenvanson', '12345'),  
-('BS15', 'Trần Văn Tài', '0123456793', 'taitran@gmail.com', 'tranvantai', '12345'),  
-('BS16', 'Phan Thị Thảo', '0123456794', 'thaophan@gmail.com', 'phanthithao', '12345'),  
-('BS17', 'Nguyễn Văn Uất', '0123456795', 'uatnguyen@gmail.com', 'nguyenvanuat', '12345'),  
-('BS18', 'Lê Thị Vân', '0123456796', 'vanle@gmail.com', 'lethivan', '12345'),  
-('BS19', 'Trần Văn Xuân', '0123456797', 'xuantran@gmail.com', 'tranvanxuan', '12345'),  
-('BS20', 'Phạm Minh Yên', '0123456798', 'yenpham@gmail.com', 'phamminhyen', '12345');
+USE WEB_KHAM_BENH;
+INSERT INTO BAC_SI (ID_BS, TEN, SDT, EMAIL, TEN_DN, MAT_KHAU, CHUYEN_KHOA, KINH_NGHIEM)  
+VALUES  
+('BS01', 'Nguyễn Văn An', '0123456789', 'annguyen@gmail.com', 'nguyenvanan', '12345', 'Nha khoa tổng quát', '5 năm kinh nghiệm'),  
+('BS02', 'Trần Thị Bình', '0123456780', 'binhtran@gmail.com', 'tranthibinh', '12345', 'Nha khoa trẻ em', '3 năm kinh nghiệm'),  
+('BS03', 'Phạm Minh Cường', '0123456781', 'cuongpham@gmail.com', 'phamminhcuong', '12345', 'Nha khoa phẫu thuật', '7 năm kinh nghiệm'),  
+('BS04', 'Lê Thị Dung', '0123456782', 'dungle@gmail.com', 'lethidung', '12345', 'Nha khoa phục hình', '4 năm kinh nghiệm'),  
+('BS05', 'Nguyễn Thế Hùng', '0123456783', 'hungnguyen@gmail.com', 'nguyenthehung', '12345', 'Nha khoa chỉnh nha', '6 năm kinh nghiệm'),  
+('BS06', 'Trần Văn Kiện', '0123456784', 'kientran@gmail.com', 'tranvankien', '12345', 'Nha khoa implant', '2 năm kinh nghiệm'),  
+('BS07', 'Phan Thị Lan', '0123456785', 'lanphan@gmail.com', 'phanthilan', '12345', 'Nha khoa nội nha', '8 năm kinh nghiệm'),  
+('BS08', 'Nguyễn Văn Minh', '0123456786', 'minhnguyen@gmail.com', 'nguyenvanminh', '12345', 'Nha khoa tổng quát', '10 năm kinh nghiệm'),  
+('BS09', 'Lê Văn Nam', '0123456787', 'namle@gmail.com', 'levannam', '12345', 'Nha khoa trẻ em', '3 năm kinh nghiệm'),  
+('BS10', 'Trần Thị Oanh', '0123456788', 'oanhtran@gmail.com', 'tranthioanh', '12345', 'Nha khoa phẫu thuật', '5 năm kinh nghiệm'),  
+('BS11', 'Nguyễn Minh Quang', '0123456789', 'quangnguyen@gmail.com', 'nguyenminhquang', '12345', 'Nha khoa phục hình', '12 năm kinh nghiệm'),  
+('BS12', 'Phạm Thị Hương', '0123456790', 'huongpham@gmail.com', 'phamthihuong', '12345', 'Nha khoa chỉnh nha', '4 năm kinh nghiệm'),  
+('BS13', 'Lê Văn Phúc', '0123456791', 'phucle@gmail.com', 'levanphuc', '12345', 'Nha khoa implant', '2 năm kinh nghiệm'),  
+('BS14', 'Nguyễn Văn Sơn', '0123456792', 'sonnguyen@gmail.com', 'nguyenvanson', '12345', 'Nha khoa nội nha', '6 năm kinh nghiệm'),  
+('BS15', 'Trần Văn Tài', '0123456793', 'taitran@gmail.com', 'tranvantai', '12345', 'Nha khoa tổng quát', '8 năm kinh nghiệm'),  
+('BS16', 'Phan Thị Thảo', '0123456794', 'thaophan@gmail.com', 'phanthithao', '12345', 'Nha khoa trẻ em', '1 năm kinh nghiệm'),  
+('BS17', 'Nguyễn Văn Uất', '0123456795', 'uatnguyen@gmail.com', 'nguyenvanuat', '12345', 'Nha khoa phẫu thuật', '9 năm kinh nghiệm'),  
+('BS18', 'Lê Thị Vân', '0123456796', 'vanle@gmail.com', 'lethivan', '12345', 'Nha khoa phục hình', '7 năm kinh nghiệm'),  
+('BS19', 'Trần Văn Xuân', '0123456797', 'xuantran@gmail.com', 'tranvanxuan', '12345', 'Nha khoa chỉnh nha', '5 năm kinh nghiệm'),  
+('BS20', 'Phạm Minh Yên', '0123456798', 'yenpham@gmail.com', 'phamminhyen', '12345', 'Nha khoa implant', '8 năm kinh nghiệm');
 
 -- ADD DỮ LIỆU VÀO BẢNG KHACH_HANG
 
@@ -116,7 +118,9 @@ VALUES
 ('KH017', 'Nguyễn Thị Sam', '0123456706', 'sam.nguyen@gmail.com', 'nguyenthisam', 12345),  
 ('KH018', 'Phan Thị Thảo', '0123456707', 'thao.phan@gmail.com', 'phanthithao', 12345),  
 ('KH019', 'Trần Quyết Tâm', '0123456708', 'tam.tran@gmail.com', 'tranquyetam', 12345),  
-('KH020', 'Nguyễn Văn Tài', '0123456709', 'tai.nguyen@gmail.com', 'nguyenvantai', 12345),
+('KH020', 'Nguyễn Văn Tài', '0123456709', 'tai.nguyen@gmail.com', 'nguyenvantai', 12345);
+
+INSERT INTO KHACH_HANG (ID_KH, TEN, SDT, EMAIL, TEN_DN, MAT_KHAU) VALUES   
 ('KH021', 'Nguyễn Văn Bình', '0123456710', 'binh.nguyen@gmail.com', 'nguyenvanbinh', 12345),   
 ('KH022', 'Trần Thị Ngọc', '0123456711', 'ngoc.tran@gmail.com', 'tranthingoc', 12345),   
 ('KH023', 'Phạm Quang Dũng', '0123456712', 'dung.pham@gmail.com', 'phamquangdung', 12345),   
@@ -148,24 +152,26 @@ VALUES
 ('KH049', 'Nguyễn Thị Hương', '0123456738', 'huong.nguyen@gmail.com', 'nguyenthihuong', 12345),   
 ('KH050', 'Phạm Văn Lẫm', '0123456739', 'lam.pham@gmail.com', 'phamvanlam', 12345);  
 
-INSERT INTO DICH_VU_KHAM (ID_DV, TEN_DV, GIA_DV) VALUES  
-('DV01', 'Implant Hàn Quốc (1 Răng)', '15000000 VNĐ'),
-('DV02', 'Implant Pháp (1 Răng)', '18000000 VNĐ'),
-('DV03', 'Implant THỤY SĨ (1 Răng)', '23000000 VNĐ'),
-('DV04', 'Điều trị tủy răng (1 Răng)', '350000-1000000 VNĐ'),
-('DV05', 'Chỉnh nha khớp cần ngược (2 Hàm)', '15000000 VNĐ'),
-('DV06', 'Thay mắc cài kim loại bằng mắc cài sứ / pha lê (1 Bộ)', '3000000/4000000 VNĐ'),
-('DV07', 'Chỉnh nha bằng khay trong suốt (2 Hàm)', '70000000-100000000 VNĐ'),
-('DV08', 'Tẩy trắng (2 Hàm)', '1200000/2500000 VNĐ'),
-('DV09', 'Điều trị viêm lợi (2 Hàm)', '500000-1000000 VNĐ'),
-('DV10', 'Nhổ răng vĩnh viễn (1 Răng)', '1000000-3000000 VNĐ'),
-('DV11', 'Phẫu thuật cười hở lợi (1 Ca)', '8000000-15000000 VNĐ'),
-('DV12', 'Nền hàm tháo lắp nhựa cứng (1 Hàm)', '1500000 VNĐ'),
-('DV13', 'Nền hàm tháo lắp nhựa dẻo (1 Hàm)', '2500000 VNĐ'),
-('DV14', 'Nền hàm tháo lắp khung Titan (1 Hàm)', '2500000 VNĐ'),
-('DV15', 'Lên răng nhựa ngoại (1 Răng)', '150000 VNĐ'),
-('DV16', 'Răng sứ Titanium (1 Răng)', '1700000 VNĐ'),
-('DV17', 'Răng sử kim loại sạch Coban (1 Răng)', '2500000 VNĐ'),
-('DV18', 'Răng sứ Katana - Nhật (1 Răng)', '2800000 VNĐ'),
-('DV19', 'Răng sứ Venus - Đức (1 Răng)', '3500000 VNĐ'),
-('DV20', 'Răng sứ Cercon, Ceramill- Đức (1 Răng)', '4500000 VNĐ');
+
+	INSERT INTO DICH_VU_KHAM (ID_DV, TEN_DV, GIA_DV) VALUES  
+	('DV01', 'Implant Hàn Quốc (1 Răng)', '15000000 VNĐ'),
+	('DV02', 'Implant Pháp (1 Răng)', '18000000 VNĐ'),
+	('DV03', 'Implant THỤY SĨ (1 Răng)', '23000000 VNĐ'),
+	('DV04', 'Điều trị tủy răng (1 Răng)', '350000 VNĐ'),
+	('DV05', 'Chỉnh nha khớp cần ngược (2 Hàm)', '15000000 VNĐ'),
+	('DV06', 'Thay mắc cài kim loại bằng mắc cài sứ / pha lê (1 Bộ)', '4000000 VNĐ'),
+	('DV07', 'Chỉnh nha bằng khay trong suốt (2 Hàm)', '100000000 VNĐ'),
+	('DV08', 'Tẩy trắng (2 Hàm)', '1200000 VNĐ'),
+	('DV09', 'Điều trị viêm lợi (2 Hàm)', '500000 VNĐ'),
+	('DV10', 'Nhổ răng vĩnh viễn (1 Răng)', '1000000 VNĐ'),
+	('DV11', 'Phẫu thuật cười hở lợi (1 Ca)', '8000000 VNĐ'),
+	('DV12', 'Nền hàm tháo lắp nhựa cứng (1 Hàm)', '1500000 VNĐ'),
+	('DV13', 'Nền hàm tháo lắp nhựa dẻo (1 Hàm)', '2500000 VNĐ'),
+	('DV14', 'Nền hàm tháo lắp khung Titan (1 Hàm)', '2500000 VNĐ'),
+	('DV15', 'Lên răng nhựa ngoại (1 Răng)', '150000 VNĐ'),
+	('DV16', 'Răng sứ Titanium (1 Răng)', '1700000 VNĐ'),
+	('DV17', 'Răng sử kim loại sạch Coban (1 Răng)', '2500000 VNĐ'),
+	('DV18', 'Răng sứ Katana - Nhật (1 Răng)', '2800000 VNĐ'),
+	('DV19', 'Răng sứ Venus - Đức (1 Răng)', '3500000 VNĐ'),
+	('DV20', 'Răng sứ Cercon, Ceramill- Đức (1 Răng)', '4500000 VNĐ');
+    
