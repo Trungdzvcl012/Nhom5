@@ -290,5 +290,17 @@
         displayDoctors(currentPage);
         displayPagination();
     </script>
+    <script>
+        function confirmBooking() {
+            const name = document.getElementById('patientName').value;
+            const phone = document.getElementById('patientPhone').value;
+            const date = document.getElementById('appointmentDate').value;
+            const time = document.getElementById('appointmentTime').value;
+
+            alert(`Đặt lịch thành công!\nTên: ${name}\nSĐT: ${phone}\nNgày: ${date}\nGiờ: ${time}`);
+            $('#bookingModal').modal('hide');
+        }
+    </script>
 </body>
 </html>
+    
